@@ -95,7 +95,7 @@ MRTdf$DecayClass<-as.factor(MRTdf$DecayClass)
 CWDMrt<-mvpart(form = data.matrix(MRTdf[,6:11183]) ~Region + DecayClass + TreeSpecies, 
                 MRTdf, xv="pick")
 
-# using Tokas function to create variance table (Table 4 in manuscript). Tokas was developed by Jenna Jacobs and Timothy Working. 
+# using Tokas function to create variance table (Table 4 in manuscript). Tokas was developed by Jenna Jacobs and Timothy Work. 
 CWDMrt_Tab<-tokas(CWDMrt)
 
 #export MRT variance table as a csv file
