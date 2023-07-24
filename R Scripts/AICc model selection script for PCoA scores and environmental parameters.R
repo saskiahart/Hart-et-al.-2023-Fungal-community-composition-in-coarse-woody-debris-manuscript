@@ -68,7 +68,7 @@ cor2r<- as.matrix(cor2$r)
 write.csv(cor1r, file="pcoacorrelation.csv")
 
 #AIC models with correlated (>0.7 Pearson's correlation coefficient) factors removed
-AICmod_nmds1<-lm(Axis1 ~mgCO2.g.d+mgCO2.g.d+MoistureContent+TotalCarbon+Phosphorous+Potassium+Manganese+CNratio+NPratio+Diameter, data=big)
+AICmod_nmds1<-lm(Axis1 ~MoistureContent+TotalCarbon+Phosphorous+Potassium+Manganese+CNratio+NPratio+Diameter, data=big)
 options(na.action = "na.fail")
 aic_nmds1<-dredge(AICmod_nmds1,rank="AICc",extra=c("R^2"))
 aic_nmds1
@@ -79,7 +79,7 @@ summary(nmds1_avg)
 summary(get.models(aic_nmds1,1)[[1]])
 
 
-AICmod_nmds2<-lm(Axis2 ~mgCO2.g.d+MoistureContent+TotalCarbon+Phosphorous+Potassium+Magnesium+Manganese+CNratio+NPratio, data=big)
+AICmod_nmds2<-lm(Axis2 ~MoistureContent+TotalCarbon+Phosphorous+Potassium+Magnesium+Manganese+CNratio+NPratio, data=big)
 options(na.action = "na.fail")
 aic_nmds2<-dredge(AICmod_nmds2,rank="AICc",extra=c("R^2"))
 aic_nmds2
